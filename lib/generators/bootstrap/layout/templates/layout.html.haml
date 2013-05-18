@@ -1,69 +1,64 @@
-!!! 5
-%html(lang="en")
+!!!
+%html{:lang => "en"}
   %head
-    %meta(charset="utf-8")
-    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
-    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : "<%= app_name %>"
-    = csrf_meta_tags
-    / Le HTML5 shim, for IE6-8 support of HTML elements
-    /[if lt IE 9]
-      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
-    = stylesheet_link_tag "application", :media => "all"
-    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
-    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
-    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
-    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
-    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
-
-
+    %title <%= content_for?(:title) ? yield(:title) : "<%= app_name %>" %>
+    <%= csrf_meta_tags %>
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    <%= stylesheet_link_tag 'application', :media => 'all' %>
+    / For third-generation iPad with high-resolution Retina display:
+    / Size should be 144 x 144 pixels
+    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+    / For iPhone with high-resolution Retina display:
+    / Size should be 114 x 114 pixels
+    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+    / For first- and second-generation iPad:
+    / Size should be 72 x 72 pixels
+    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+    / For non-Retina iPhone, iPod Touch, and Android 2.1+ devices:
+    / Size should be 57 x 57 pixels
+    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+    / For all other devices
+    / Size should be 32 x 32 pixels
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+    / Javascripts
+    / Placed inside head element to support turbolinks
+    <%= javascript_include_tag 'application' %>
+    / Responsive features in IE8
+    /[if IE 8]
+      <%= javascript_include_tag javascript_path('respond.js') %>
   %body
-    .navbar.navbar-<%= layout_type %>-top
-      .navbar-inner
-        .<%= container_class %>
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="#") <%= app_name %>
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-
-    .<%= container_class %>
-    <%- if layout_type == "fluid" -%>
-
-      .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-        .span9
-          = bootstrap_flash
-          = yield
-    <% else %>
+    %div{:class => "navbar navbar-#{layout_type}-top"}
+      %div{:class => container_class}
+        / .navbar-toggle is used as the toggle for collapsed navbar content
+        %button.navbar-toggle{"data-target" => ".navbar-responsive-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        / Be sure to leave the brand out there if you want it shown
+        %a.navbar-brand{:href => "#"}= app_name
+        / Place everything within .navbar-collapse to hide it until above 768px
+        .nav-collapse.collapse.navbar-responsive-collapse
+          %ul.nav.navbar-nav
+            %li <%= link_to "Link1", "/path1"  %>
+            %li <%= link_to "Link2", "/path2"  %>
+            %li <%= link_to "Link3", "/path3"  %>
+        / /.nav-collapse
+    %div{:class => container_class}
       .row
-        .span9
-          = bootstrap_flash
-          = yield
-        .span3
+        .col.col-lg-9
+          <%= bootstrap_flash %>
+          <%= yield %>
+        .col.col-lg-3
           .well.sidebar-nav
             %h3 Sidebar
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-    <% end %>
+              %li <%= link_to "Link1", "/path1"  %>
+              %li <%= link_to "Link2", "/path2"  %>
+              %li <%= link_to "Link3", "/path3"  %>
+          / /.well
+        / /span
+      / /row
       %footer
-        %p &copy; Company 2013
-    /
-      Javascripts
-      \==================================================
-    / Placed at the end of the document so the pages load faster
-    = javascript_include_tag "application"
+        %p © Company 2013
+    / /container

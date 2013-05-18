@@ -187,10 +187,11 @@ By default, this gem overrides standard Bootstraps's Glyphicons with Font Awesom
 If you would like to restore the default Glyphicons, inside the _bootstrap_and_overrides.css.less_ remove the FontAwesome declaration and uncomment the line:
 
 ```css
-// Font Awesome
-// @import "fontawesome";
-// Glyphicons
-@import "twitter/bootstrap/sprites.less";
+/* Font Awesome (default - comment to disable) */
+//@import "fontawesome/font-awesome";
+
+/* Glyphicons */
+@import "twitter/bootstrap/glyphicons";
 ```
 
 ## Using Javascripts
