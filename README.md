@@ -191,41 +191,14 @@ This should appear inside _bootstrap_and_overrides *(based on you twitter-bootst
 
 **From 2.2.7**
 
-```css
-// Font Awesome
-@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
-@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot?#iefix");
-@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
-@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
-@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
-@import "fontawesome/font-awesome";
-```
-
-**Before 2.2.7**
-
-```css
-// Font Awesome
-@fontAwesomeEotPath: "/assets/fontawesome-webfont.eot";
-@fontAwesomeEotPath_iefix: "/assets/fontawesome-webfont.eot?#iefix";
-@fontAwesomeWoffPath: "/assets/fontawesome-webfont.woff";
-@fontAwesomeTtfPath: "/assets/fontawesome-webfont.ttf";
-@fontAwesomeSvgPath: "/assets/fontawesome-webfont.svg#fontawesomeregular";
-@import "fontawesome";
-```
-
 If you would like to restore the default Glyphicons, inside the _bootstrap_and_overrides.css.less_ remove the FontAwesome declaration and uncomment the line:
 
 ```less
-// Font Awesome
-// @fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
-// @fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot?#iefix");
-// @fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
-// @fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
-// @fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
-// @import "fontawesome/font-awesome";
+/* Font Awesome (default - comment to disable) */
+//@import "fontawesome/font-awesome";
 
-// Glyphicons
-@import "twitter/bootstrap/sprites.less";
+/* Glyphicons */
+@import "twitter/bootstrap/glyphicons";
 ```
 
 ## Using Javascripts
@@ -555,8 +528,8 @@ Add flash helper `<%= bootstrap_flash %>` to your layout (built-in with layout g
 
 ### Breadcrumbs Helpers
 
-*Notice* If your application is using [breadcrumbs-on-rails](https://github.com/weppos/breadcrumbs_on_rails) you will have a namespace collision with the add_breadcrumb method. 
-You do not need to use these breadcrumb gems since this gem provides the same functionality out of the box without the additional dependency. 
+*Notice* If your application is using [breadcrumbs-on-rails](https://github.com/weppos/breadcrumbs_on_rails) you will have a namespace collision with the add_breadcrumb method.
+You do not need to use these breadcrumb gems since this gem provides the same functionality out of the box without the additional dependency.
 
 Add breadcrumbs helper `<%= render_breadcrumbs %>` to your layout.
 
