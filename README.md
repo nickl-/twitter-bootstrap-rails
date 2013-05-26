@@ -66,7 +66,7 @@ Then run `bundle install` from the command line:
 
 Then run the bootstrap generator to add Bootstrap includes into your assets:
 
-    rails generate bootstrap:install less
+    rails g bootstrap:install less
 
 ### Installing the CSS stylesheets
 
@@ -78,7 +78,7 @@ gem "twitter-bootstrap-rails"
 
 After running `bundle install`, run the generator:
 
-    rails generate bootstrap:install static
+    rails g bootstrap:install static
 
 ## Generating layouts and views
 
@@ -118,7 +118,7 @@ Usage:
 Example:
 
 
-    rails g scaffold Post title:string description:text
+    rails g scaffold Post title:string description:text --no-stylesheets
     rake db:migrate
     rails g bootstrap:themed Posts
 
@@ -143,24 +143,45 @@ You have to require Bootstrap LESS (bootstrap_and_overrides.css.less) in your ap
 To use individual components from bootstrap, your bootstrap_and_overrides.less could look like this:
 
 ```css
-@import "twitter/bootstrap/reset.less";
+// Core variables and mixins
 @import "twitter/bootstrap/variables.less";
 @import "twitter/bootstrap/mixins.less";
+
+// Reset
+@import "twitter/bootstrap/normalize.less";
+
+// Core CSS
 @import "twitter/bootstrap/scaffolding.less";
-@import "twitter/bootstrap/grid.less";
-@import "twitter/bootstrap/layouts.less";
 @import "twitter/bootstrap/type.less";
+@import "twitter/bootstrap/code.less";
+@import "twitter/bootstrap/grid.less";
+
+@import "twitter/bootstrap/tables.less";
 @import "twitter/bootstrap/forms.less";
-@import "twitter/bootstrap/wells.less";
-@import "twitter/bootstrap/component-animations.less";
 @import "twitter/bootstrap/buttons.less";
+
+// Components: common
+@import "twitter/bootstrap/dropdowns.less";
 @import "twitter/bootstrap/close.less";
+
+// Components: Nav
 @import "twitter/bootstrap/navs.less";
 @import "twitter/bootstrap/navbar.less";
-@import "twitter/bootstrap/labels-badges.less";
-@import "twitter/bootstrap/hero-unit.less";
-@import "twitter/bootstrap/utilities.less";
-@import "twitter/bootstrap/responsive";
+
+// Components: Popovers
+@import "twitter/bootstrap/modals.less";
+@import "twitter/bootstrap/tooltip.less";
+
+// Components: Misc
+@import "twitter/bootstrap/alerts.less";
+@import "twitter/bootstrap/progress-bars.less";
+@import "twitter/bootstrap/accordion.less";
+@import "twitter/bootstrap/carousel.less";
+@import "twitter/bootstrap/jumbotron.less";
+
+// Utility classes
+@import "twitter/bootstrap/utilities.less"; // Has to be last to override when necessary
+@import "twitter/bootstrap/responsive-utilities.less";
 ```
 
 If you'd like to alter Bootstrap's own variables, or define your LESS
@@ -168,7 +189,7 @@ styles inheriting Bootstrap's mixins, you can do so inside bootstrap_and_overrid
 
 
 ```css
-@linkColor: #ff0000;
+@brand-primary: #ff0000;
 ```
 
 ### SASS
@@ -235,8 +256,12 @@ to /app/assets/javascripts/ folder.
 
 ```coffee
 jQuery ->
-  $("a[rel~=popover], .has-popover").popover()
-  $("a[rel~=tooltip], .has-tooltip").tooltip()
+  # For performance reasons, the Tooltip and Popover data-apis are opt in.
+  # Uncomment the following line to enable tooltips
+  # $("[data-toggle='tooltip']").tooltip()
+
+  # Uncomment the following line to enable popovers
+  # $("[data-toggle='popover']").popover()
 ```
 
 ## Using Helpers
