@@ -3,6 +3,7 @@
   <head>
     <title><%%= content_for?(:title) ? yield(:title) : "<%= app_name %>" %></title>
     <%%= csrf_meta_tags %>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%%= stylesheet_link_tag 'application', :media => 'all' %>
@@ -58,7 +59,7 @@
             <li><%%= link_to "Link2", "/path2"  %></li>
             <li><%%= link_to "Link3", "/path3"  %></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </div>
 
@@ -77,18 +78,18 @@
               <li><%%= link_to "Link2", "/path2"  %></li>
               <li><%%= link_to "Link3", "/path3"  %></li>
             </ul>
-          </div><!--/.well -->
-        </div><!--/col-->
-      </div><!--/row-->
+          </div>
+        </div>
+      </div>
 
       <footer>
-        <p>&copy; Company <%= Date.today.year %></p>
+        <div class="row">
+          <div class="col-lg-12">
+            <p>&copy; Company <%= Date.today.year %></p>
+          </div>
+        </div>
       </footer>
 
     </div> <!-- /container -->
-<<<<<<< HEAD
-
-=======
->>>>>>> Dropped support for IE7
   </body>
 </html>

@@ -34,7 +34,6 @@ html lang="en"
             li <%= link_to "Link1", "/path1"  %>
             li <%= link_to "Link2", "/path2"  %>
             li <%= link_to "Link3", "/path3"  %>
-        /! /.nav-collapse
     div class=(container_class)
       .row
         .col-lg-9
@@ -48,9 +47,8 @@ html lang="en"
               li <%= link_to "Link1", "/path1"  %>
               li <%= link_to "Link2", "/path2"  %>
               li <%= link_to "Link3", "/path3"  %>
-          /! /.well
-        /! /col
-      /! /row
       footer
-        p &copy; Company <%= Date.today.year %>
+        .row
+          .col-lg-12
+            p &copy; Company <%= Date.today.year %>
     /! /container
