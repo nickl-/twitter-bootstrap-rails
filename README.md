@@ -1,7 +1,7 @@
-# Twitter Bootstrap for Rails 3.1 Asset Pipeline
+# Twitter Bootstrap for Rails 4 Asset Pipeline
 Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites. It includes base CSS and HTML for typography, forms, buttons, tables, grids, navigation, and more.
 
-twitter-bootstrap-rails project integrates Bootstrap CSS toolkit for Rails 3.1 Asset Pipeline (Rails 3.2 supported)
+twitter-bootstrap-rails project integrates Bootstrap CSS toolkit for Rails 4 Asset Pipeline (Rails 3.1 and Rails 3.2 supported)
 
 [![Gem Version](https://badge.fury.io/rb/twitter-bootstrap-rails.png)][gem]
 [![Build Status](https://secure.travis-ci.org/seyhunak/twitter-bootstrap-rails.png?branch=master)][travis]
@@ -50,7 +50,7 @@ Include these lines in the Gemfile to install the gems from [RubyGems.org](http:
 
 ```ruby
 gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "less-rails" #Sprockets (what Rails 4 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 ```
 
@@ -237,13 +237,13 @@ $(function(){
 If you want to customize what is loaded, your application.js would look something like this
 
 ```js
-#= require jquery
-#= require jquery_ujs
-#= require twitter/bootstrap/bootstrap-transition
-#= require twitter/bootstrap/bootstrap-alert
-#= require twitter/bootstrap/bootstrap-modal
-#= require twitter/bootstrap/bootstrap-button
-#= require twitter/bootstrap/bootstrap-collapse
+//= require jquery
+//= require jquery_ujs
+//= require twitter/bootstrap/bootstrap-transition
+//= require twitter/bootstrap/bootstrap-alert
+//= require twitter/bootstrap/bootstrap-modal
+//= require twitter/bootstrap/bootstrap-button
+//= require twitter/bootstrap/bootstrap-collapse
 ```
 
 ...and so on for each bootstrap js component.
