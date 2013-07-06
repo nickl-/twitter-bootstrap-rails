@@ -219,7 +219,7 @@ If you would like to restore the default Glyphicons, inside the _bootstrap_and_o
 //@import "fontawesome/font-awesome";
 
 /* Glyphicons */
-@import "twitter/bootstrap/glyphicons";
+@import "twitter/glyphicons/glyphicons";
 ```
 
 ## Using Javascripts
