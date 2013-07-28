@@ -144,44 +144,45 @@ To use individual components from bootstrap, your bootstrap_and_overrides.less c
 
 ```css
 // Core variables and mixins
-@import "twitter/bootstrap/variables.less";
-@import "twitter/bootstrap/mixins.less";
+@import "twbs/bootstrap/variables.less";
+@import "twbs/bootstrap/mixins.less";
 
 // Reset
-@import "twitter/bootstrap/normalize.less";
+@import "twbs/bootstrap/normalize.less";
 
 // Core CSS
-@import "twitter/bootstrap/scaffolding.less";
-@import "twitter/bootstrap/type.less";
-@import "twitter/bootstrap/code.less";
-@import "twitter/bootstrap/grid.less";
+@import "twbs/bootstrap/scaffolding.less";
+@import "twbs/bootstrap/type.less";
+@import "twbs/bootstrap/code.less";
+@import "twbs/bootstrap/grid.less";
 
-@import "twitter/bootstrap/tables.less";
-@import "twitter/bootstrap/forms.less";
-@import "twitter/bootstrap/buttons.less";
+@import "twbs/bootstrap/tables.less";
+@import "twbs/bootstrap/forms.less";
+@import "twbs/bootstrap/buttons.less";
 
 // Components: common
-@import "twitter/bootstrap/dropdowns.less";
-@import "twitter/bootstrap/close.less";
+@import "twbs/bootstrap/input-groups.less";
+@import "twbs/bootstrap/dropdowns.less";
+@import "twbs/bootstrap/close.less";
 
 // Components: Nav
-@import "twitter/bootstrap/navs.less";
-@import "twitter/bootstrap/navbar.less";
+@import "twbs/bootstrap/navs.less";
+@import "twbs/bootstrap/navbar.less";
 
 // Components: Popovers
-@import "twitter/bootstrap/modals.less";
-@import "twitter/bootstrap/tooltip.less";
+@import "twbs/bootstrap/modals.less";
+@import "twbs/bootstrap/tooltip.less";
 
 // Components: Misc
-@import "twitter/bootstrap/alerts.less";
-@import "twitter/bootstrap/progress-bars.less";
-@import "twitter/bootstrap/accordion.less";
-@import "twitter/bootstrap/carousel.less";
-@import "twitter/bootstrap/jumbotron.less";
+@import "twbs/bootstrap/alerts.less";
+@import "twbs/bootstrap/progress-bars.less";
+@import "twbs/bootstrap/accordion.less";
+@import "twbs/bootstrap/carousel.less";
+@import "twbs/bootstrap/jumbotron.less";
 
 // Utility classes
-@import "twitter/bootstrap/utilities.less"; // Has to be last to override when necessary
-@import "twitter/bootstrap/responsive-utilities.less";
+@import "twbs/bootstrap/utilities.less"; // Has to be last to override when necessary
+@import "twbs/bootstrap/responsive-utilities.less";
 ```
 
 If you'd like to alter Bootstrap's own variables, or define your LESS
@@ -219,7 +220,7 @@ If you would like to restore the default Glyphicons, inside the _bootstrap_and_o
 //@import "fontawesome/font-awesome";
 
 /* Glyphicons */
-@import "twitter/glyphicons/glyphicons";
+@import "twbs/bootstrap-glyphicons/bootstrap-glyphicons";
 ```
 
 ## Using Javascripts
@@ -227,7 +228,7 @@ If you would like to restore the default Glyphicons, inside the _bootstrap_and_o
 Require Bootstrap JS (bootstrap.js) in your application.js
 
 ```js
-//= require twitter/bootstrap
+//= require twbs/bootstrap
 
 $(function(){
   /* Your javascripts goes here... */
@@ -239,11 +240,11 @@ If you want to customize what is loaded, your application.js would look somethin
 ```js
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap/bootstrap-transition
-//= require twitter/bootstrap/bootstrap-alert
-//= require twitter/bootstrap/bootstrap-modal
-//= require twitter/bootstrap/bootstrap-button
-//= require twitter/bootstrap/bootstrap-collapse
+//= require twbs/bootstrap/bootstrap-transition
+//= require twbs/bootstrap/bootstrap-alert
+//= require twbs/bootstrap/bootstrap-modal
+//= require twbs/bootstrap/bootstrap-button
+//= require twbs/bootstrap/bootstrap-collapse
 ```
 
 ...and so on for each bootstrap js component.
