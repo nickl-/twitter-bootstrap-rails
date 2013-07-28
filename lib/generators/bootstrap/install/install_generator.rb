@@ -11,15 +11,13 @@ module Bootstrap
       def add_assets
 
         js_manifest = 'app/assets/javascripts/application.js'
-
         if File.exist?(js_manifest)
-          insert_into_file js_manifest, "//= require twitter/bootstrap\n", :after => "jquery_ujs\n"
+          insert_into_file js_manifest, "//= require twbs/bootstrap\n", :after => "jquery_ujs\n"
         else
           copy_file "application.js", js_manifest
         end
 
         css_manifest = 'app/assets/stylesheets/application.css'
-
         if File.exist?(css_manifest)
           # Add our own require:
           content = File.read(css_manifest)
@@ -32,7 +30,6 @@ module Bootstrap
         else
           copy_file "application.css", "app/assets/stylesheets/application.css"
         end
-
       end
 
       def add_bootstrap
@@ -59,6 +56,7 @@ module Bootstrap
 
       def cleanup_legacy
         # Remove old requires (if any) that included twitter/bootstrap directly:
+        gsub_file("app/assets/javascripts/application.js", "//= require twitter/bootstrap\n", "")
         gsub_file("app/assets/stylesheets/application.css", %r|\s*\*=\s*twitter/bootstrap\s*\n|, "")
         gsub_file("app/assets/stylesheets/application.css", %r|\s*\*=\s*twitter/bootstrap_responsive\s*\n|, "")
         if File.exist?('app/assets/stylesheets/bootstrap_override.css.less')

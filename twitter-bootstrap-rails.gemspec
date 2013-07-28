@@ -1,5 +1,5 @@
 $:.push File.expand_path("../lib", __FILE__)
-require "twitter/bootstrap/rails/version"
+require "twbs/bootstrap/rails/version"
 
 Gem::Specification.new do |s|
   s.name        = "twitter-bootstrap-rails"
