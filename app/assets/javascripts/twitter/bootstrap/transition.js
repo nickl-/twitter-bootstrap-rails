@@ -1,6 +1,6 @@
 /* ========================================================================
  * Bootstrap: transition.js v3.0.0
- * http://twitter.github.com/bootstrap/javascript.html#transitions
+ * http://twbs.github.com/bootstrap/javascript.html#transitions
  * ========================================================================
  * Copyright 2013 Twitter, Inc.
  *
@@ -46,6 +46,7 @@
     $(this).one('webkitTransitionEnd', function () { called = true })
     var callback = function () { if (!called) $($el).trigger('webkitTransitionEnd') }
     setTimeout(callback, duration)
+    return this
   }
 
   $(function () {
