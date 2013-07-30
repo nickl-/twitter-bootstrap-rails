@@ -15,10 +15,10 @@ module NavbarHelper
     content_tag(:ul, :class => "nav navbar-nav #{pull_class}", &block)
   end
 
-  def menu_item(name, path="#", *args)
+  def menu_item(name = nil, path="#", *args, &block)
     options = args.extract_options!
     content_tag :li, :class => is_active?(path) do
-      link_to name, path, options
+			link_to((name.nil?) ? yield : name, path, options)
     end
   end
 
