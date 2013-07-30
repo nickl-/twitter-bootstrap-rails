@@ -59,7 +59,7 @@ module NavbarHelper
     options.append_merge!(:class, pull_class)
     options.append_merge!(:class, "btn btn-default navbar-btn")
     content_tag :li, :class => is_active?(path) do
-			link_to(content_tag(:button, text, options), path)
+			link_to(content_tag(:button, text, options).html_safe, path)
 		end
   end
 
