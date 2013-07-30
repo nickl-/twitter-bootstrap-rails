@@ -50,6 +50,17 @@ module NavbarHelper
     end
   end
 
+  def menu_button(text=nil, options={}, &block)
+    pull       = options.delete(:pull)
+    pull_class = pull.present? ? "pull-#{pull.to_s}" : nil
+    options.append_merge!(:type, "button")
+    options.append_merge!(:class, pull_class)
+    options.append_merge!(:class, "btn btn-default navbar-btn")
+    content_tag :button, options do
+      text || yield
+    end
+  end
+
   private
 
   def nav_bar_div(options, &block)
