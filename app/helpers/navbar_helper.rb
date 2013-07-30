@@ -22,17 +22,17 @@ module NavbarHelper
     end
   end
 
-  def drop_down(name)
+  def menu_dropdown(name)
     content_tag :li, :class => "dropdown" do
       drop_down_link(name) + drop_down_list { yield }
     end
   end
 
-  def drop_down_divider
+  def dropdown_divider
     content_tag :li, "", :class => "divider"
   end
 
-  def drop_down_header(text)
+  def dropdown_header(text)
     content_tag :li, text, :class => "nav-header"
   end
 
