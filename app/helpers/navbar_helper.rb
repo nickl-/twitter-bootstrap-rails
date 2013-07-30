@@ -79,6 +79,22 @@ module NavbarHelper
     end
   end
 
+  def menu_form(options={}, &block)
+    pull_class = "pull-#{options[:pull].to_s}" if options[:pull].present?
+    content_tag(:form, {:class => "navbar-form #{pull_class}", :action}, &block)
+  end
+
+  def input_text(text=nil, options={})
+    pull       = options.delete(:pull)
+    pull_class = pull.present? ? "pull-#{pull.to_s}" : nil
+
+    options.append_merge!(:type, "text")
+    options.append_merge!(:class, pull_class)
+    options.append_merge!(:class, "form-control col-lg-8")
+    options.append_merge!(:placeholder, text)
+    content_tag :input, options
+  end
+
   private
 
   def nav_bar_div(options, &block)
