@@ -26,7 +26,7 @@ module NavbarHelper
 
   def menu_dropdown(name)
     content_tag :li, :class => "dropdown" do
-      drop_down_link(name) + drop_down_list { yield }
+      dropdown_link(name) + dropdown_list { yield }
     end
   end
 
@@ -150,11 +150,11 @@ module NavbarHelper
     "#{name} #{content_tag(:b, :class => "caret") {}}".html_safe
   end
 
-  def drop_down_link(name)
+  def dropdown_link(name)
     link_to(name_and_caret(name), "#", :class => "dropdown-toggle", "data-toggle" => "dropdown")
   end
 
-  def drop_down_list(&block)
+  def dropdown_list(&block)
     content_tag :ul, :class => "dropdown-menu", &block
   end
 end
