@@ -50,7 +50,7 @@ module NavbarHelper
     end
   end
 
-  def menu_button(text=nil, path="#", options={})
+  def menu_button(text=nil, path="#", options={}, &block)
     pull       = options.delete(:pull)
     pull_class = pull.present? ? "pull-#{pull.to_s}" : nil
 		javascript_path = "window.location='#{path}'"
@@ -58,8 +58,11 @@ module NavbarHelper
     options.append_merge!(:class, pull_class)
     options.append_merge!(:class, "btn btn-default navbar-btn")
     options.append_merge!(:onclick, javascript_path)
-    content_tag :li, content_tag(:button, text, options,
-				), :class => is_active?(path)
+    content_tag :li, :class => is_active?(path) do
+			content_tag :button, options do
+				text || yield
+			end
+		end
   end
 
   def menu_form(action=nil, options={}, &block)
