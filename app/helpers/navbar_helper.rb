@@ -98,7 +98,7 @@ module NavbarHelper
   def brand_link(name, url)
     return "" if name.blank?
     url ||= root_url
-    link_to(name, url, :class => "brand")
+    link_to(name, url, :class => "navbar-brand")
   end
 
   def responsive_button
