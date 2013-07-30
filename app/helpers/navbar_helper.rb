@@ -63,9 +63,9 @@ module NavbarHelper
     end
   end
 
-  def menu_form(options={}, &block)
+  def menu_form(action=nil, options={}, &block)
     pull_class = "pull-#{options[:pull].to_s}" if options[:pull].present?
-    content_tag(:form, {:class => "navbar-form #{pull_class}", :action}, &block)
+    content_tag(:form, {:class => "navbar-form #{pull_class}", :action => action}, &block)
   end
 
   def input_text(text=nil, options={})
