@@ -22,11 +22,11 @@
 // Import the fonts
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphiconshalflings-regular.eot');
-  src: url('../fonts/glyphiconshalflings-regular.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/glyphiconshalflings-regular.woff') format('woff'),
-       url('../fonts/glyphiconshalflings-regular.ttf') format('truetype'),
-       url('../fonts/glyphiconshalflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: @glyphicons-eot-path;
+  src: @glyphicons-eot-path-iefix format('embedded-opentype'),
+    @glyphicons-woff-path format('woff'),
+    @glyphicons-ttf-path format('truetype'),
+    @glyphicons-svg-path format('svg');
 }
 
 // Catchall baseclass
