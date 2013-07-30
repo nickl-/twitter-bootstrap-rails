@@ -18,7 +18,13 @@ module NavbarHelper
   def menu_item(name = nil, path="#", *args, &block)
     options = args.extract_options!
     content_tag :li, :class => is_active?(path) do
-			link_to((name.nil?) ? yield : name, path, options)
+			if (name.nil?) then
+				content_tag :a, href: path do
+					yield
+				end
+			else 
+				link_to(name, path, options)
+			end
     end
   end
 
