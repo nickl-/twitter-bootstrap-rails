@@ -102,11 +102,11 @@ module NavbarHelper
   end
 
   def responsive_button
-    %{<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    %{<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
-	      </a>}
+	      </button>}
   end
 
   def responsive_div(&block)
